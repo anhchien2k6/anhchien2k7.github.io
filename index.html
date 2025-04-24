@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hộp Thư Tương Lai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="envelope"></div>
+    <div class="typewriter">
+        <div class="paper">
+            <span class="letter"></span>
+        </div>
+    </div>
+
+    <script>
+        const letterContent = `
+Chào em cô gái anh mới quen,
+lần gặp đầu tiên, anh đã rất ấn tượng bởi cách nói chuyện của em, nó làm người khác tạm quên đi những vấn đề họ đang gặp phải, ai nói gì thì nói, anh thích câu chuyện của em đấy. Hi vong trong tương lai chúng mình sẽ nói chuyện vô tri với nhau nhiều hơn.
+Rất vui được làm quen với em!`;
+        const letterElement = document.querySelector('.letter');
+        let index = 0;
+
+        function typeLetter() {
+            if (index < letterContent.length) {
+                letterElement.textContent += letterContent[index];
+                index++;
+                setTimeout(typeLetter, 50); // Adjust typing speed here
+            } else {
+                letterElement.style.borderRight = 'none'; // Remove cursor when done
+            }
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeLetter, 1500);
+    </script>
+</body>
+</html>
